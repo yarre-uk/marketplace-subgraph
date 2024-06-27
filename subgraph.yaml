@@ -8,7 +8,7 @@ dataSources:
     name: MarketplaceExtended
     network: sepolia
     source:
-      address: "0x3E6b37471b9ac833073C522b92dd581581f3174c"
+      address: "0x5ED1376cc825022257374Aaf15FAefcc3198892d"
       abi: MarketplaceExtended
       startBlock: 6190501
     mapping:
@@ -16,29 +16,13 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Initialized
-        - OrderCreated
-        - OrderProcessed
-        - OwnershipTransferred
-        - RoleAdminChanged
-        - RoleGranted
-        - RoleRevoked
+        - Order
       abis:
         - name: MarketplaceExtended
           file: ./abis/MarketplaceExtended.json
       eventHandlers:
-        - event: Initialized(uint64)
-          handler: handleInitialized
         - event: OrderCreated(indexed bytes32,indexed address,indexed uint8)
           handler: handleOrderCreated
         - event: OrderProcessed(indexed bytes32,indexed address,indexed uint8)
           handler: handleOrderProcessed
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
-        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
-          handler: handleRoleAdminChanged
-        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleGranted
-        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleRevoked
       file: ./src/marketplace-extended.ts
