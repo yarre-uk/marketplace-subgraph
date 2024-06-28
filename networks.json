@@ -2,7 +2,7 @@
   "sepolia": {
     "MarketplaceExtended": {
       "address": "0x5ED1376cc825022257374Aaf15FAefcc3198892d",
-      "startBlock": 6190501
+      "startBlock": 6204286
     }
   }
 }

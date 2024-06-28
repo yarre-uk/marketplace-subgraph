@@ -3,6 +3,9 @@ type Order @entity(mutable: true) {
   sender: Bytes! # address
   orderType: Int! # uint8
   orderStatus: Int! # uint8
+  price: BigInt!
+  nftId: BigInt!
+  createdAt: BigInt!
   MarketplaceExtended_id: Bytes! # bytes32
   blockNumber: BigInt!
   blockTimestamp: BigInt!

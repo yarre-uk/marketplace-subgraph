@@ -21,6 +21,9 @@ export function handleOrderCreated(event: OrderCreatedEvent): void {
   entity.sender = event.params.sender
   entity.orderType = event.params.orderType
   entity.orderStatus = OrderStatus.Created;
+  entity.price = event.params.price;
+  entity.createdAt = event.params.createdAt;
+  entity.nftId = event.params.nftId;
 
   entity.blockNumber = event.block.number
   entity.blockTimestamp = event.block.timestamp
