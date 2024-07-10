@@ -22,6 +22,7 @@ type Orderbook @entity(mutable: true) {
   amount: BigInt!
   createdAt: BigInt!
   orderType: Int!
+  processed: Boolean!
   OrderbookExtended_id: Bytes!
   blockNumber: BigInt!
   blockTimestamp: BigInt!

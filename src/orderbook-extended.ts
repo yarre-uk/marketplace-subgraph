@@ -14,12 +14,14 @@ export function handleOrderCreated(event: OrderCreatedEvent): void {
     event.params.id
   )
 
+  entity.OrderbookExtended_id = event.params.id;
   entity.sender = event.params.sender;
   entity.tokerId = event.params.tokenId;
   entity.price = event.params.price;
   entity.amount = event.params.amount;
   entity.createdAt = event.params.createdAt;
   entity.orderType = event.params.orderType;
+  entity.processed = false;
 
   entity.blockNumber = event.params.createdAt;
   entity.blockTimestamp = event.block.timestamp
@@ -35,7 +37,8 @@ export function handleOrderProcessed(event: OrderProcessedEvent): void {
     throw new Error("Order not found");
   }
 
-  store.remove('Orderbook', event.params.id.toString());
+  entity.processed = true;
+  entity.save();
 }
 
 export function handleOrderDeleted(event: OrderDeletedEvent): void {
@@ -45,7 +48,8 @@ export function handleOrderDeleted(event: OrderDeletedEvent): void {
     throw new Error("Order not found");
   }
 
-  store.remove('Orderbook', event.params.id.toString());
+  entity.processed = true;
+  entity.save();
 }
 
 export function handleOrderUpdated(event: OrderUpdatedEvent): void {
