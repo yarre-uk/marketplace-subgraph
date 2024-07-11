@@ -16,7 +16,7 @@ export function handleOrderCreated(event: OrderCreatedEvent): void {
 
   entity.OrderbookExtended_id = event.params.id;
   entity.sender = event.params.sender;
-  entity.tokerId = event.params.tokenId;
+  entity.tokenId = event.params.tokenId;
   entity.price = event.params.price;
   entity.amount = event.params.amount;
   entity.createdAt = event.params.createdAt;

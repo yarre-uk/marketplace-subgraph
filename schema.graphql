@@ -17,7 +17,7 @@ type Order @entity(mutable: true) {
 type Orderbook @entity(mutable: true) {
   id: Bytes!
   sender: Bytes!
-  tokerId: BigInt!
+  tokenId: BigInt!
   price: BigInt!
   amount: BigInt!
   createdAt: BigInt!
